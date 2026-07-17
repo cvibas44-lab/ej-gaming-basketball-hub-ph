@@ -96,34 +96,12 @@ function loadACLib(zoneId) {
   document.head.appendChild(s);
 }
 
-function showConsentBanner(){
-  const banner = document.querySelector('.consent-banner');
-  if (banner) banner.style.display = 'block';
+// Auto-load ads and ACLib immediately (consent removed by request)
+function autoLoadAdsAndAC() {
+  // Load AdSense placeholder script (replace with your publisher ID)
+  try { loadAds('ca-pub-REPLACE'); } catch (e) {}
+  // Load ACLib interstitial (will respect frequency cap)
+  try { loadACLib(AC_ZONE_ID); } catch (e) {}
 }
 
-function hideConsentBanner(){
-  const banner = document.querySelector('.consent-banner');
-  if (banner) banner.style.display = 'none';
-}
-
-function acceptAds(){
-  localStorage.setItem('ej_accept_ads','1');
-  hideConsentBanner();
-  // Replace with your AdSense publisher ID
-  loadAds('ca-pub-REPLACE');
-  // Load ACLib interstitial after consent
-  try { loadACLib(AC_ZONE_ID); } catch(e){}
-}
-
-function declineAds(){
-  localStorage.setItem('ej_accept_ads','0');
-  hideConsentBanner();
-}
-
-function checkAdConsent(){
-  const val = localStorage.getItem('ej_accept_ads');
-  if (val === '1') { loadAds('ca-pub-REPLACE'); try { loadACLib(AC_ZONE_ID); } catch(e){} }
-  else if (val === null) { showConsentBanner(); }
-}
-
-document.addEventListener('DOMContentLoaded', () => checkAdConsent());
+document.addEventListener('DOMContentLoaded', () => autoLoadAdsAndAC());
