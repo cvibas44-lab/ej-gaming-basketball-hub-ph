@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact EJ Gaming</title>
+    <meta name="description" content="Reach out to EJ Gaming through our contact form and social placeholders." />
+    <meta property="og:title" content="Contact EJ Gaming" />
+    <meta property="og:description" content="Contact us with questions, collaboration ideas, or community feedback." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/placeholder.svg" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html">EJ <span>Gaming</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="nba.html">NBA</a>
+        <a href="mlbb.html">MLBB</a>
+        <a href="news.html">News</a>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero">
+        <div class="container hero-content">
+          <div>
+            <p class="tag">Contact Us</p>
+            <h1>Let’s talk basketball, gaming, and community stories</h1>
+            <p>Whether you want to share a tip, ask a question, or collaborate with EJ Gaming, the form below is ready to use.</p>
+          </div>
+          <div class="form-card">
+            <form id="contact-form" novalidate>
+              <div class="form-grid">
+                <label>
+                  Name
+                  <input type="text" name="name" placeholder="Your name" />
+                </label>
+                <label>
+                  Email
+                  <input type="email" name="email" placeholder="you@example.com" />
+                </label>
+              </div>
+              <label>
+                Message
+                <textarea name="message" rows="6" placeholder="Tell us what you need."></textarea>
+              </label>
+              <button class="btn btn-primary" type="submit">Send Message</button>
+              <p id="form-status" class="form-status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container card-grid">
+          <article class="card">
+            <h3>Email</h3>
+            <p>hello@ejgamingph.example</p>
+          </article>
+          <article class="card">
+            <h3>Facebook</h3>
+            <p>@ejgamingph</p>
+          </article>
+          <article class="card">
+            <h3>TikTok / YouTube</h3>
+            <p>@ejgamingph • EJ Gaming PH</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span data-year></span> EJ Gaming – Basketball Hub PH. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
