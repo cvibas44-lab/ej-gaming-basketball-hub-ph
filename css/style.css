@@ -164,6 +164,27 @@ input:focus, textarea:focus { outline: 2px solid rgba(43,109,245,0.35); border-c
   border: 1px solid var(--border);
 }
 
+/* Ad and consent styles */
+.ad-container { display: flex; justify-content: center; margin: 1rem 0; }
+.ad-box { width: 100%; max-width: 728px; background: transparent; border-radius: 12px; overflow: hidden; display:inline-block }
+.adsbygoogle { display:inline-block; width:100%; }
+
+.consent-banner {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: linear-gradient(90deg, rgba(18,36,56,0.98), rgba(5,7,12,0.98));
+  color: var(--text);
+  padding: 1rem 1rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  z-index: 9999;
+  max-width: 360px;
+}
+.consent-banner p { margin: 0 0 0.6rem 0; color: var(--muted); font-size: 0.95rem }
+.consent-actions { display:flex; gap:0.6rem; justify-content:flex-end }
+.consent-actions .btn { padding: 0.5rem 0.8rem; font-size: 0.95rem }
+
 .hero-panel, .info-panel { background: linear-gradient(135deg, rgba(43,109,245,0.12), rgba(255,122,26,0.1)); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
 
 @media (min-width: 760px) {
