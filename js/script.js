@@ -57,6 +57,18 @@ function loadAds(publisherId) {
 // ACLib (adcash-like) interstitial loader
 const AC_ZONE_ID = '11741738'; // Replace with your ACLib zone ID
 const AC_AUTO_POP = true; // set to false to avoid auto interstitial
+const AC_INTERSTITIAL_INTERVAL = 20 * 60 * 1000; // 20 minutes
+
+function shouldShowAC() {
+  try {
+    const last = parseInt(localStorage.getItem('ej_ac_last') || '0', 10);
+    return (Date.now() - last) > AC_INTERSTITIAL_INTERVAL;
+  } catch (e) { return true; }
+}
+
+function markACShown() {
+  try { localStorage.setItem('ej_ac_last', Date.now().toString()); } catch (e) {}
+}
 
 function loadACLib(zoneId) {
   if (!zoneId) return;
@@ -71,8 +83,13 @@ function loadACLib(zoneId) {
   s.onload = () => {
     window.aclibLoaded = true;
     try {
-      if (AC_AUTO_POP && window.aclib && typeof window.aclib.runInterstitial === 'function') {
-        setTimeout(() => { try{ window.aclib.runInterstitial({ zoneId: zoneId }); }catch(e){} }, 1200);
+      if (AC_AUTO_POP && window.aclib && typeof window.aclib.runInterstitial === 'function' && shouldShowAC()) {
+        setTimeout(() => {
+          try{
+            window.aclib.runInterstitial({ zoneId: zoneId });
+            markACShown();
+          }catch(e){}
+        }, 1200);
       }
     } catch (e) {}
   };
