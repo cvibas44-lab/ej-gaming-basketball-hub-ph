@@ -57,7 +57,8 @@ function loadAds(publisherId) {
 // ACLib (adcash-like) interstitial loader
 const AC_ZONE_ID = '11741738'; // Replace with your ACLib zone ID
 const AC_AUTO_POP = true; // set to false to avoid auto interstitial
-const AC_INTERSTITIAL_INTERVAL = 20 * 60 * 1000; // 20 minutes
+// Frequency cap for ACLib interstitial: set to ~2 minutes (120000 ms)
+const AC_INTERSTITIAL_INTERVAL = 2 * 60 * 1000; // 2 minutes
 
 function shouldShowAC() {
   try {
