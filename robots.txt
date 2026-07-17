@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+
+Sitemap: https://cvibas44-lab.github.io/ej-gaming-basketball-hub-ph/sitemap.xml
